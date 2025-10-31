@@ -1,0 +1,70 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Runic.AST</AssemblyName>
+    <RootNamespace>Runic.AST</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\src\FunctionParameter.cs" Link="FunctionParameter.cs"/>
+    <Compile Include="..\..\src\GlobalVariable.cs" Link="GlobalVariable.cs"/>
+    <Compile Include="..\..\src\INodeStream.cs" Link="INodeStream.cs"/>
+    <Compile Include="..\..\src\LocalVariable.cs" Link="LocalVariable.cs"/>
+    <Compile Include="..\..\src\Node.cs" Link="Node.cs"/>
+    <Compile Include="..\..\src\Type.cs" Link="Type.cs"/>
+    <Compile Include="..\..\src\Variable.cs" Link="Variable.cs"/>
+    <Compile Include="..\..\src\Nodes\Add.cs" Link="Nodes\Add.cs"/>
+    <Compile Include="..\..\src\Nodes\And.cs" Link="Nodes\And.cs"/>
+    <Compile Include="..\..\src\Nodes\Branch.cs" Link="Nodes\Branch.cs"/>
+    <Compile Include="..\..\src\Nodes\Call.cs" Link="Nodes\Call.cs"/>
+    <Compile Include="..\..\src\Nodes\Cast.cs" Link="Nodes\Cast.cs"/>
+    <Compile Include="..\..\src\Nodes\Comparison.cs" Link="Nodes\Comparison.cs"/>
+    <Compile Include="..\..\src\Nodes\Constant.cs" Link="Nodes\Constant.cs"/>
+    <Compile Include="..\..\src\Nodes\Decrement.cs" Link="Nodes\Decrement.cs"/>
+    <Compile Include="..\..\src\Nodes\Dereference.cs" Link="Nodes\Dereference.cs"/>
+    <Compile Include="..\..\src\Nodes\Div.cs" Link="Nodes\Div.cs"/>
+    <Compile Include="..\..\src\Nodes\DoWhile.cs" Link="Nodes\DoWhile.cs"/>
+    <Compile Include="..\..\src\Nodes\Empty.cs" Link="Nodes\Empty.cs"/>
+    <Compile Include="..\..\src\Nodes\Expression.cs" Link="Nodes\Expression.cs"/>
+    <Compile Include="..\..\src\Nodes\For.cs" Link="Nodes\For.cs"/>
+    <Compile Include="..\..\src\Nodes\Function.cs" Link="Nodes\Function.cs"/>
+    <Compile Include="..\..\src\Nodes\FunctionReference.cs" Link="Nodes\FunctionReference.cs"/>
+    <Compile Include="..\..\src\Nodes\If.cs" Link="Nodes\If.cs"/>
+    <Compile Include="..\..\src\Nodes\Increment.cs" Link="Nodes\Increment.cs"/>
+    <Compile Include="..\..\src\Nodes\Indexing.cs" Link="Nodes\Indexing.cs"/>
+    <Compile Include="..\..\src\Nodes\IndexingReference.cs" Link="Nodes\IndexingReference.cs"/>
+    <Compile Include="..\..\src\Nodes\IndirectCall.cs" Link="Nodes\IndirectCall.cs"/>
+    <Compile Include="..\..\src\Nodes\Label.cs" Link="Nodes\Label.cs"/>
+    <Compile Include="..\..\src\Nodes\LogicalAnd.cs" Link="Nodes\LogicalAnd.cs"/>
+    <Compile Include="..\..\src\Nodes\LogicalOr.cs" Link="Nodes\LogicalOr.cs"/>
+    <Compile Include="..\..\src\Nodes\MemberReference.cs" Link="Nodes\MemberReference.cs"/>
+    <Compile Include="..\..\src\Nodes\MemberUse.cs" Link="Nodes\MemberUse.cs"/>
+    <Compile Include="..\..\src\Nodes\Mul.cs" Link="Nodes\Mul.cs"/>
+    <Compile Include="..\..\src\Nodes\Not.cs" Link="Nodes\Not.cs"/>
+    <Compile Include="..\..\src\Nodes\Or.cs" Link="Nodes\Or.cs"/>
+    <Compile Include="..\..\src\Nodes\Rem.cs" Link="Nodes\Rem.cs"/>
+    <Compile Include="..\..\src\Nodes\Return.cs" Link="Nodes\Return.cs"/>
+    <Compile Include="..\..\src\Nodes\Scope.cs" Link="Nodes\Scope.cs"/>
+    <Compile Include="..\..\src\Nodes\Sequence.cs" Link="Nodes\Sequence.cs"/>
+    <Compile Include="..\..\src\Nodes\SizeOf.cs" Link="Nodes\SizeOf.cs"/>
+    <Compile Include="..\..\src\Nodes\Sub.cs" Link="Nodes\Sub.cs"/>
+    <Compile Include="..\..\src\Nodes\Switch.cs" Link="Nodes\Switch.cs"/>
+    <Compile Include="..\..\src\Nodes\Ternary.cs" Link="Nodes\Ternary.cs"/>
+    <Compile Include="..\..\src\Nodes\VariableAssignment.cs" Link="Nodes\VariableAssignment.cs"/>
+    <Compile Include="..\..\src\Nodes\VariableReference.cs" Link="Nodes\VariableReference.cs"/>
+    <Compile Include="..\..\src\Nodes\VariableUse.cs" Link="Nodes\VariableUse.cs"/>
+    <Compile Include="..\..\src\Nodes\While.cs" Link="Nodes\While.cs"/>
+    <Compile Include="..\..\src\Nodes\Xor.cs" Link="Nodes\Xor.cs"/>
+    <Compile Include="..\..\src\Types\Boolean.cs" Link="Types\Boolean.cs"/>
+    <Compile Include="..\..\src\Types\FloatingPoint.cs" Link="Types\FloatingPoint.cs"/>
+    <Compile Include="..\..\src\Types\FunctionPointer.cs" Link="Types\FunctionPointer.cs"/>
+    <Compile Include="..\..\src\Types\Integer.cs" Link="Types\Integer.cs"/>
+    <Compile Include="..\..\src\Types\Invalid.cs" Link="Types\Invalid.cs"/>
+    <Compile Include="..\..\src\Types\NativeInteger.cs" Link="Types\NativeInteger.cs"/>
+    <Compile Include="..\..\src\Types\Nullptr.cs" Link="Types\Nullptr.cs"/>
+    <Compile Include="..\..\src\Types\Pointer.cs" Link="Types\Pointer.cs"/>
+    <Compile Include="..\..\src\Types\StructOrUnion.cs" Link="Types\StructOrUnion.cs"/>
+    <Compile Include="..\..\src\Types\Void.cs" Link="Types\Void.cs"/>
+  </ItemGroup>
+</Project>
