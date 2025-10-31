@@ -1,0 +1,126 @@
+﻿/*
+ * MIT License
+ * 
+ * Copyright (c) 2025 Runic Compiler Toolkit Contributors
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Runic.AST
+{
+    public abstract partial class Node
+    {
+        public abstract partial class Expression : Node
+        {
+            public abstract class Constant : Expression
+            {
+                public Constant(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                public Constant() : base() { }
+                public class I8 : Constant
+                {
+                    sbyte _value;
+                    public sbyte Value { get { return _value; } }
+                    public override Type Type { get { return Type._i8; } }
+#if NET6_0_OR_GREATER
+                    public I8(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#else
+                    public I8(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#endif
+                    public I8() : base() { }
+                }
+                public class I16 : Constant
+                {
+                    short _value;
+                    public short Value { get { return _value; } }
+                    public override Type Type { get { return Type._i16; } }
+#if NET6_0_OR_GREATER
+                    public I16(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#else
+                    public I16(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#endif
+                    public I16() : base() { }
+                }
+                public class I32 : Constant
+                {
+                    int _value;
+                    public int Value { get { return _value; } }
+                    public override Type Type { get { return Type._i32; } }
+#if NET6_0_OR_GREATER
+                    public I32(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#else
+                    public I32(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#endif
+                    public I32() : base() { }
+                }
+                public class I64 : Constant
+                {
+                    long _value;
+                    public long Value { get { return _value; } }
+                    public override Type Type { get { return Type._i64; } }
+#if NET6_0_OR_GREATER
+                    public I64(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#else
+                    public I64(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#endif
+                    public I64() : base() { }
+                }
+                public class F32 : Constant
+                {
+                    float _value;
+                    public float Value { get { return _value; } }
+                    public override Type Type { get { return Type._f32; } }
+#if NET6_0_OR_GREATER
+                    public F32(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#else
+                    public F32(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#endif
+                    public F32() : base() { }
+                }
+                public class F64 : Constant
+                {
+                    double _value;
+                    public double Value { get { return _value; } }
+                    public override Type Type { get { return Type._f64; } }
+#if NET6_0_OR_GREATER
+                    public F64(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#else
+                    public F64(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#endif
+                    public F64() : base() { }
+                }
+                public class Null : Constant
+                {
+                    public override Type Type { get { return Type._nullptr; } }
+#if NET6_0_OR_GREATER
+                    public Null(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#else
+                    public Null(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#endif
+                    public Null() : base() { }
+                }
+            }
+        }
+    }
+}
