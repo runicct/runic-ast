@@ -49,11 +49,11 @@ namespace Runic.AST
                     public sbyte Value { get { return _value; } }
                     public override Type Type { get { return Type._i8; } }
 #if NET6_0_OR_GREATER
-                    public I8(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public I8(int startLine, int startColumn, int endLine, int endColumn, string? file, sbyte value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
 #else
-                    public I8(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public I8(int startLine, int startColumn, int endLine, int endColumn, string file, sbyte value) : base(startLine, startColumn, endLine, endColumn, file) {  _value = value; }
 #endif
-                    public I8() : base() { }
+                    public I8(sbyte value) : this(-1, -1, -1, -1, null, value) { }
                 }
                 public class I16 : Constant
                 {
@@ -61,11 +61,11 @@ namespace Runic.AST
                     public short Value { get { return _value; } }
                     public override Type Type { get { return Type._i16; } }
 #if NET6_0_OR_GREATER
-                    public I16(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public I16(int startLine, int startColumn, int endLine, int endColumn, string? file, short value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
 #else
-                    public I16(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public I16(int startLine, int startColumn, int endLine, int endColumn, string file, short value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
 #endif
-                    public I16() : base() { }
+                    public I16(short value) : this(-1, -1, -1, -1, null, value) { }
                 }
                 public class I32 : Constant
                 {
@@ -73,11 +73,11 @@ namespace Runic.AST
                     public int Value { get { return _value; } }
                     public override Type Type { get { return Type._i32; } }
 #if NET6_0_OR_GREATER
-                    public I32(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public I32(int startLine, int startColumn, int endLine, int endColumn, string? file, int value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
 #else
-                    public I32(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public I32(int startLine, int startColumn, int endLine, int endColumn, string file, int value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
 #endif
-                    public I32() : base() { }
+                    public I32(int value) : this(-1, -1, -1, -1, null, value) { }
                 }
                 public class I64 : Constant
                 {
@@ -85,11 +85,11 @@ namespace Runic.AST
                     public long Value { get { return _value; } }
                     public override Type Type { get { return Type._i64; } }
 #if NET6_0_OR_GREATER
-                    public I64(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public I64(int startLine, int startColumn, int endLine, int endColumn, string? file, long value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
 #else
-                    public I64(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public I64(int startLine, int startColumn, int endLine, int endColumn, string file, long value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
 #endif
-                    public I64() : base() { }
+                    public I64(long value) : this(-1, -1, -1, -1, null, value) { }
                 }
                 public class F32 : Constant
                 {
@@ -97,11 +97,11 @@ namespace Runic.AST
                     public float Value { get { return _value; } }
                     public override Type Type { get { return Type._f32; } }
 #if NET6_0_OR_GREATER
-                    public F32(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public F32(int startLine, int startColumn, int endLine, int endColumn, string? file, float value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
 #else
-                    public F32(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public F32(int startLine, int startColumn, int endLine, int endColumn, string file, float value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
 #endif
-                    public F32() : base() { }
+                    public F32(float value) : this(-1, -1, -1, -1, null, value) { }
                 }
                 public class F64 : Constant
                 {
@@ -109,11 +109,11 @@ namespace Runic.AST
                     public double Value { get { return _value; } }
                     public override Type Type { get { return Type._f64; } }
 #if NET6_0_OR_GREATER
-                    public F64(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public F64(int startLine, int startColumn, int endLine, int endColumn, string? file, double value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
 #else
-                    public F64(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+                    public F64(int startLine, int startColumn, int endLine, int endColumn, string file, double value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
 #endif
-                    public F64() : base() { }
+                    public F64(double value) : this(-1, -1, -1, -1, null, value) { }
                 }
                 public class Null : Constant
                 {
