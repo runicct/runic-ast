@@ -50,7 +50,11 @@ namespace Runic.AST
                 {
                     _function = function;
                     _parameters = parameters;
+#if NET6_0_OR_GREATER
                     Type.FunctionPointer? functionType = _function.Type as Type.FunctionPointer;
+#else
+                    Type.FunctionPointer functionType = _function.Type as Type.FunctionPointer;
+#endif
                     if (functionType == null)
                     {
                         throw new Exception("The function expression must be a function pointer");

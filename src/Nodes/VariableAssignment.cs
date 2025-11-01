@@ -27,7 +27,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Runic.AST
 {
@@ -45,7 +44,7 @@ namespace Runic.AST
 #if NET6_0_OR_GREATER
                 public VariableAssignment(int startLine, int startColumn, int endLine, int endColumn, string? file, Variable variable, Expression value) : base(startLine, startColumn, endLine, endColumn, file)
 #else
-                public VariableAssignment(int startLine, int startColumn, int endLine, int endColumn, string? file, Variable variable, Expression value) : base(startLine, startColumn, endLine, endColumn, file)
+                public VariableAssignment(int startLine, int startColumn, int endLine, int endColumn, string file, Variable variable, Expression value) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
                 {
                     _variable = variable;

@@ -45,10 +45,18 @@ namespace Runic.AST
             {
                 return _targetType.ToString() + "*";
             }
+#if NET6_0_OR_GREATER
             public override bool Equals(object? obj)
+#else
+            public override bool Equals(object obj)
+#endif
             {
                 if (obj == null) { return false; }
+#if NET6_0_OR_GREATER
                 Pointer? ptr = obj as Pointer;
+#else
+                Pointer ptr = obj as Pointer;
+#endif
                 if (ptr == null) { return false; }
                 return ptr._targetType.Equals(this._targetType);
             }

@@ -44,7 +44,7 @@ namespace Runic.AST
 #if NET6_0_OR_GREATER
                 public Xor(int startLine, int startColumn, int endLine, int endColumn, string? file, Expression left, Expression right) : base(startLine, startColumn, endLine, endColumn, file)
 #else
-                public Xor(int startLine, int startColumn, int endLine, int endColumn, string? file, Expression left, Expression right) : base(startLine, startColumn, endLine, endColumn, file)
+                public Xor(int startLine, int startColumn, int endLine, int endColumn, string file, Expression left, Expression right) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
                 {
                     _left = left;

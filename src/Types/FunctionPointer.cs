@@ -44,10 +44,18 @@ namespace Runic.AST
                 _returnType = returnType;
                 _parameterTypes = parameterTypes;
             }
+#if NET6_0_OR_GREATER
             public override bool Equals(object? obj)
+#else
+            public override bool Equals(object obj)
+#endif
             {
                 if (obj == null) { return false; }
+#if NET6_0_OR_GREATER
                 FunctionPointer? ptr = obj as FunctionPointer;
+#else
+                FunctionPointer ptr = obj as FunctionPointer;
+#endif
                 if (ptr == null) { return false; }
                 if (ptr._parameterTypes.Length != this._parameterTypes.Length) { return false; }
                 if (!ptr._returnType.Equals(this._returnType)) { return false; }

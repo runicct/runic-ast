@@ -78,7 +78,11 @@ namespace Runic.AST
                         public Dereference(int startLine, int startColumn, int endLine, int endColumn, string file, Expression address) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
                         {
+#if NET6_0_OR_GREATER
                             Type.Pointer? pointerType = address.Type as Type.Pointer;
+#else
+                            Type.Pointer pointerType = address.Type as Type.Pointer;
+#endif
                             if (pointerType == null)
                             {
                                 throw new Exception("Cannot dereference a non-pointer type");
@@ -103,7 +107,11 @@ namespace Runic.AST
                         public Indexing(int startLine, int startColumn, int endLine, int endColumn, string file, Expression target, Expression index) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
                         {
+#if NET6_0_OR_GREATER
                             Type.Pointer? pointerType = target.Type as Type.Pointer;
+#else
+                            Type.Pointer pointerType = target.Type as Type.Pointer;
+#endif
                             if (pointerType == null)
                             {
                                 throw new Exception("Cannot dereference a non-pointer type");
@@ -168,7 +176,11 @@ namespace Runic.AST
                         public Dereference(int startLine, int startColumn, int endLine, int endColumn, string file,Expression address) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
                         {
+#if NET6_0_OR_GREATER
                             Type.Pointer? pointerType = address.Type as Type.Pointer;
+#else
+                            Type.Pointer pointerType = address.Type as Type.Pointer;
+#endif
                             if (pointerType == null)
                             {
                                 throw new Exception("Cannot dereference a non-pointer type");
@@ -195,7 +207,11 @@ namespace Runic.AST
                         public Indexing(int startLine, int startColumn, int endLine, int endColumn, string file, Expression target, Expression index) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
                         {
+#if NET6_0_OR_GREATER
                             Type.Pointer? pointerType = target.Type as Type.Pointer;
+#else
+                            Type.Pointer pointerType = target.Type as Type.Pointer;
+#endif
                             if (pointerType == null)
                             {
                                 throw new Exception("Cannot dereference a non-pointer type");

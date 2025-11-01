@@ -36,7 +36,12 @@ namespace Runic.AST
         {
             public abstract class Constant : Expression
             {
+#if NET6_0_OR_GREATER
+
                 public Constant(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#else
+                public Constant(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+#endif
                 public Constant() : base() { }
                 public class I8 : Constant
                 {

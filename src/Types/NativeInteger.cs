@@ -46,10 +46,18 @@ namespace Runic.AST
             {
                 return "u";
             }
+#if NET6_0_OR_GREATER
             public override bool Equals(object? obj)
+#else
+            public override bool Equals(object obj)
+#endif
             {
                 if (obj == null) { return false; }
+#if NET6_0_OR_GREATER
                 NativeInteger? integer = obj as NativeInteger;
+#else
+                NativeInteger integer = obj as NativeInteger;
+#endif
                 return integer != null;
             }
 

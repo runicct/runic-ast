@@ -43,7 +43,7 @@ namespace Runic.AST
 #if NET6_0_OR_GREATER
                 public VariableReference(int startLine, int startColumn, int endLine, int endColumn, string? file, Variable variable) : base(startLine, startColumn, endLine, endColumn, file)
 #else
-                public VariableReference(int startLine, int startColumn, int endLine, int endColumn, string? file, Variable variable) : base(startLine, startColumn, endLine, endColumn, file)
+                public VariableReference(int startLine, int startColumn, int endLine, int endColumn, string file, Variable variable) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
                 {
                     _type = new Type.Pointer(variable.Type);

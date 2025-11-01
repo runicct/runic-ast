@@ -47,10 +47,18 @@ namespace Runic.AST
             {
                 return ("f") + _bits.ToString();
             }
+#if NET6_0_OR_GREATER
             public override bool Equals(object? obj)
+#else
+            public override bool Equals(object obj)
+#endif
             {
                 if (obj == null) { return false; }
+#if NET6_0_OR_GREATER
                 FloatingPoint? fp = obj as FloatingPoint;
+#else
+                FloatingPoint fp = obj as FloatingPoint;
+#endif
                 if (fp == null) { return false; }
                 return (fp.Bits == this.Bits);
             }

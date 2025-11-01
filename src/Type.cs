@@ -33,13 +33,21 @@ namespace Runic.AST
     public abstract partial class Type
     {
         public abstract ulong SizeOf(uint pointerSize, uint packing, uint padding);
+#if NET6_0_OR_GREATER
         public static bool operator ==(Type? a, Type? b)
+#else
+        public static bool operator ==(Type a, Type b)
+#endif
         {
             if (a is null && b is null) { return true; }
             if (a is null || b is null) { return false; }
             return a.Equals(b);
         }
+#if NET6_0_OR_GREATER
         public static bool operator !=(Type? a, Type? b)
+#else
+        public static bool operator !=(Type a, Type b)
+#endif
         {
             return !(a == b);
         }

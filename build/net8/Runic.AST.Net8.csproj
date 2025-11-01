@@ -33,6 +33,7 @@
     <Compile Include="..\..\src\Nodes\If.cs" Link="Nodes\If.cs"/>
     <Compile Include="..\..\src\Nodes\Increment.cs" Link="Nodes\Increment.cs"/>
     <Compile Include="..\..\src\Nodes\Indexing.cs" Link="Nodes\Indexing.cs"/>
+    <Compile Include="..\..\src\Nodes\IndexingAssignment.cs" Link="Nodes\IndexingAssignment.cs"/>
     <Compile Include="..\..\src\Nodes\IndexingReference.cs" Link="Nodes\IndexingReference.cs"/>
     <Compile Include="..\..\src\Nodes\IndirectCall.cs" Link="Nodes\IndirectCall.cs"/>
     <Compile Include="..\..\src\Nodes\Label.cs" Link="Nodes\Label.cs"/>

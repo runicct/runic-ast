@@ -44,7 +44,7 @@ namespace Runic.AST
 #if NET6_0_OR_GREATER
             public Return(int startLine, int startColumn, int endLine, int endColumn, string? file, Expression value) : base(startLine, startColumn, endLine, endColumn, file)
 #else
-            public Return(int startLine, int startColumn, int endLine, int endColumn, string? file, Expression value) : base(startLine, startColumn, endLine, endColumn, file)
+            public Return(int startLine, int startColumn, int endLine, int endColumn, string file, Expression value) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
             {
                 _value = value;

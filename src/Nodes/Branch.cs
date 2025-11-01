@@ -36,7 +36,11 @@ namespace Runic.AST
         {
             Label _target;
             public Label Target { get { return _target; } }
+#if NET6_0_OR_GREATER
             public Branch(int startLine, int startColumn, int endLine, int endColumn, string? file, Label target) : base(startLine, startColumn, endLine, endColumn, file)
+#else
+            public Branch(int startLine, int startColumn, int endLine, int endColumn, string file, Label target) : base(startLine, startColumn, endLine, endColumn, file)
+#endif
             {
                 _target = target;
             }

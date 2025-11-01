@@ -40,10 +40,18 @@ namespace Runic.AST
             {
                 return "<invalid>";
             }
+#if NET6_0_OR_GREATER
             public override bool Equals(object? obj)
+#else
+            public override bool Equals(object obj)
+#endif
             {
                 if (obj == null) { return false; }
+#if NET6_0_OR_GREATER
                 Invalid? bad = obj as Invalid;
+#else
+                Invalid bad = obj as Invalid;
+#endif
                 return bad != null;
             }
             public override int GetHashCode() { return (int)(0x7F000000 + 0x00000000); }

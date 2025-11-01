@@ -55,14 +55,18 @@ namespace Runic.AST
 #if NET6_0_OR_GREATER
             public For(int startLine, int startColumn, int endLine, int endColumn, string? file, Expression? initialization, Expression? condition, Expression? increment) : base(startLine, startColumn, endLine, endColumn, file)
 #else
-            public For(int startLine, int startColumn, int endLine, int endColumn, string file, Expression? initialization, Expression? condition, Expression? increment) : base(startLine, startColumn, endLine, endColumn, file)
+            public For(int startLine, int startColumn, int endLine, int endColumn, string file, Expression initialization, Expression condition, Expression increment) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
             {
                 _initialization = initialization;
                 _condition = condition;
                 _increment = increment;
             }
+#if NET6_0_OR_GREATER
             public For(Expression? initialization, Expression? condition, Expression? increment) : this(-1, -1, -1, -1, null, initialization, condition, increment) { }
+#else
+            public For(Expression initialization, Expression condition, Expression increment) : this(-1, -1, -1, -1, null, initialization, condition, increment) { }
+#endif
         }
     }
 }

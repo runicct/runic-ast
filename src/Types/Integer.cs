@@ -56,10 +56,18 @@ namespace Runic.AST
             {
                 return (_signed ? "i" : "u") + _bits.ToString();
             }
+#if NET6_0_OR_GREATER
             public override bool Equals(object? obj)
+#else
+            public override bool Equals(object obj)
+#endif
             {
                 if (obj == null) { return false; }
+#if NET6_0_OR_GREATER
                 Integer? integer = obj as Integer;
+#else
+                Integer integer = obj as Integer;
+#endif
                 if (integer == null) { return false; }
                 return (integer.Signed == this.Signed) && (integer.Bits == this.Bits);
             }

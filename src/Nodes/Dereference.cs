@@ -27,7 +27,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Runic.AST
 {
@@ -48,7 +47,11 @@ namespace Runic.AST
 #endif
                 {
                     _address = address;
+#if NET6_0_OR_GREATER
                     Type.Pointer? pointerType = address.Type as Type.Pointer;
+#else
+                    Type.Pointer pointerType = address.Type as Type.Pointer;
+#endif
                     if (pointerType == null) { throw new Exception("Cannot dereference a non-pointer type"); }
                     _type = pointerType.TargetType;
                 }

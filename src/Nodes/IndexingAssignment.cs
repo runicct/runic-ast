@@ -34,34 +34,34 @@ namespace Runic.AST
     {
         public abstract partial class Expression : Node
         {
-            public class Indexing : Expression
+            public class IndexingAssignment : Expression
             {
                 Expression _address;
                 public Expression Address { get { return _address; } }
                 Expression _index;
                 public Expression Index { get { return _index; } }
+                Expression _value;
+                public Expression Value { get { return _value; } }
                 Type _type;
                 public override Type Type { get { return _type; } }
 #if NET6_0_OR_GREATER
-                public Indexing(int startLine, int startColumn, int endLine, int endColumn, string? file, Expression address, Expression index) : base(startLine, startColumn, endLine, endColumn, file)
+                public IndexingAssignment(int startLine, int startColumn, int endLine, int endColumn, string? file, Expression address, Expression index, Expression value) : base(startLine, startColumn, endLine, endColumn, file)
 #else
-                public Indexing(int startLine, int startColumn, int endLine, int endColumn, string file, Expression address, Expression index) : base(startLine, startColumn, endLine, endColumn, file)
+                public IndexingAssignment(int startLine, int startColumn, int endLine, int endColumn, string file, Expression address, Expression index, Expression value) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
                 {
-                    _address = address;
-                    _index = index;
 #if NET6_0_OR_GREATER
                     Type.Pointer? pointerType = address.Type as Type.Pointer;
 #else
                     Type.Pointer pointerType = address.Type as Type.Pointer;
 #endif
-                    if (pointerType == null)
-                    {
-                        throw new Exception("Cannot index a non-pointer type");
-                    }
+                    if (pointerType == null) { throw new Exception("Cannot index a non-pointer type"); }
                     _type = pointerType.TargetType;
+                    _address = address;
+                    _index = index;
+                    _value = value;
                 }
-                public Indexing(Expression address, Expression index) : this(-1, -1, -1, -1, null, address, index) { }
+                public IndexingAssignment(Expression address, Expression index, Expression value) : this(-1, -1, -1, -1, null, address, index, value) { }
             }
         }
     }

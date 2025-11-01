@@ -41,10 +41,18 @@ namespace Runic.AST
             {
                 return "bool";
             }
+#if NET6_0_OR_GREATER
             public override bool Equals(object? obj)
+#else
+            public override bool Equals(object obj)
+#endif
             {
                 if (obj == null) { return false; }
+#if NET6_0_OR_GREATER
                 Boolean? boolean = obj as Boolean;
+#else
+                Boolean boolean = obj as Boolean;
+#endif
                 return boolean != null;
             }
             public override int GetHashCode() { return (int)(0x7F000000 + 0x000C0000); }

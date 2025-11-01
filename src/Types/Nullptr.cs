@@ -41,10 +41,18 @@ namespace Runic.AST
             {
                 return "nullptr";
             }
+#if NET6_0_OR_GREATER
             public override bool Equals(object? obj)
+#else
+            public override bool Equals(object obj)
+#endif
             {
                 if (obj == null) { return false; }
+#if NET6_0_OR_GREATER
                 Nullptr? nullptr = obj as Nullptr;
+#else
+                Nullptr nullptr = obj as Nullptr;
+#endif
                 return nullptr != null;
             }
             public override int GetHashCode() { return (int)(0x7F000000 + 0x000E0000); }

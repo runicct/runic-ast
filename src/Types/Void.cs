@@ -39,10 +39,18 @@ namespace Runic.AST
             {
                 return "void";
             }
+#if NET6_0_OR_GREATER
             public override bool Equals(object? obj)
+#else
+            public override bool Equals(object obj)
+#endif
             {
                 if (obj == null) { return false; }
+#if NET6_0_OR_GREATER
                 Void? @void = obj as Void;
+#else
+                Void @void = obj as Void;
+#endif
                 return @void != null;
             }
             public override int GetHashCode() { return (int)(0x7F000000 + 0x000D0000); }

@@ -36,7 +36,11 @@ namespace Runic.AST
         {
             Expression _condition;
             public Expression Condition { get { return _condition; } }
+#if NET6_0_OR_GREATER
             public abstract Node[]? Body { get; }
+#else
+            public abstract Node[] Body { get; }
+#endif
 #if NET6_0_OR_GREATER
             public DoWhile(int startLine, int startColumn, int endLine, int endColumn, string? file, Expression condition) : base(startLine, startColumn, endLine, endColumn, file)
 #else
