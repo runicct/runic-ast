@@ -125,6 +125,90 @@ namespace Runic.AST
 #endif
                     public Null() : base() { }
                 }
+                public abstract class String : Constant
+                {
+                    string _value;
+                    public string Value { get { return _value; } }
+#if NET6_0_OR_GREATER
+                    public String(int startLine, int startColumn, int endLine, int endColumn, string? file, string value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
+#else
+                    public String(int startLine, int startColumn, int endLine, int endColumn, string file, string value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
+#endif
+                    public String(string value) : this(-1, -1, -1, -1, null, value) { }
+
+                    public class UTF8 : String
+                    {
+                        public override Type Type { get { return Type._utf8String; } }
+#if NET6_0_OR_GREATER
+                        public UTF8(int startLine, int startColumn, int endLine, int endColumn, string? file, string value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#else
+                        public UTF8(int startLine, int startColumn, int endLine, int endColumn, string file, string value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#endif
+                        public UTF8(string value) : this(-1, -1, -1, -1, null, value) { }
+                    }
+                    public class UTF16 : String
+                    {
+                        public override Type Type { get { return Type._utf16String; } }
+#if NET6_0_OR_GREATER
+                        public UTF16(int startLine, int startColumn, int endLine, int endColumn, string? file, string value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#else
+                        public UTF16(int startLine, int startColumn, int endLine, int endColumn, string file, string value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#endif
+                        public UTF16(string value) : this(-1, -1, -1, -1, null, value) { }
+                    }
+                    public class UTF32 : String
+                    {
+                        public override Type Type { get { return Type._utf32String; } }
+#if NET6_0_OR_GREATER
+                        public UTF32(int startLine, int startColumn, int endLine, int endColumn, string? file, string value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#else
+                        public UTF32(int startLine, int startColumn, int endLine, int endColumn, string file, string value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#endif
+                        public UTF32(string value) : this(-1, -1, -1, -1, null, value) { }
+                    }
+                }
+                public abstract class Char : Constant
+                {
+                    char _value;
+                    public char Value { get { return _value; } }
+#if NET6_0_OR_GREATER
+                    public Char(int startLine, int startColumn, int endLine, int endColumn, string? file, char value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
+#else
+                    public Char(int startLine, int startColumn, int endLine, int endColumn, string file, char value) : base(startLine, startColumn, endLine, endColumn, file) { _value = value; }
+#endif
+                    public Char(char value) : this(-1, -1, -1, -1, null, value) { }
+
+                    public class UTF8 : Char
+                    {
+                        public override Type Type { get { return Type._utf8Char; } }
+#if NET6_0_OR_GREATER
+                        public UTF8(int startLine, int startColumn, int endLine, int endColumn, string? file, char value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#else
+                        public UTF8(int startLine, int startColumn, int endLine, int endColumn, string file, char value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#endif
+                        public UTF8(char value) : this(-1, -1, -1, -1, null, value) { }
+                    }
+                    public class UTF16 : Char
+                    {
+                        public override Type Type { get { return Type._utf16Char; } }
+#if NET6_0_OR_GREATER
+                        public UTF16(int startLine, int startColumn, int endLine, int endColumn, string? file, char value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#else
+                        public UTF16(int startLine, int startColumn, int endLine, int endColumn, string file, char value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#endif
+                        public UTF16(char value) : this(-1, -1, -1, -1, null, value) { }
+                    }
+                    public class UTF32 : Char
+                    {
+                        public override Type Type { get { return Type._utf32Char; } }
+#if NET6_0_OR_GREATER
+                        public UTF32(int startLine, int startColumn, int endLine, int endColumn, string? file, char value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#else
+                        public UTF32(int startLine, int startColumn, int endLine, int endColumn, string file, char value) : base(startLine, startColumn, endLine, endColumn, file, value) { }
+#endif
+                        public UTF32(char value) : this(-1, -1, -1, -1, null, value) { }
+                    }
+                }
             }
         }
     }

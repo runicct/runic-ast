@@ -186,6 +186,12 @@
     <Compile Include="..\..\src\Nodes\Xor.cs">
       <Link>Nodes\Xor.cs</Link>
     </Compile>
+    <Compile Include="..\..\src\Nodes\Shr.cs">
+      <Link>Nodes\Shr.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Nodes\Shl.cs">
+      <Link>Nodes\Shl.cs</Link>
+    </Compile>
     <Compile Include="..\..\src\Types\Boolean.cs">
       <Link>Types\Boolean.cs</Link>
     </Compile>
@@ -194,6 +200,12 @@
     </Compile>
     <Compile Include="..\..\src\Types\FunctionPointer.cs">
       <Link>Types\FunctionPointer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Types\Char.cs">
+      <Link>Types\Char.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Types\String.cs">
+      <Link>Types\String.cs</Link>
     </Compile>
     <Compile Include="..\..\src\Types\Integer.cs">
       <Link>Types\Integer.cs</Link>

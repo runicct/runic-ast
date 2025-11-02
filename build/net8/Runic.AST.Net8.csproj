@@ -57,7 +57,11 @@
     <Compile Include="..\..\src\Nodes\VariableUse.cs" Link="Nodes\VariableUse.cs"/>
     <Compile Include="..\..\src\Nodes\While.cs" Link="Nodes\While.cs"/>
     <Compile Include="..\..\src\Nodes\Xor.cs" Link="Nodes\Xor.cs"/>
+    <Compile Include="..\..\src\Nodes\Shl.cs" Link="Nodes\Shl.cs"/>
+    <Compile Include="..\..\src\Nodes\Shr.cs" Link="Nodes\Shr.cs"/>
     <Compile Include="..\..\src\Types\Boolean.cs" Link="Types\Boolean.cs"/>
+    <Compile Include="..\..\src\Types\Char.cs" Link="Types\Char.cs"/>
+    <Compile Include="..\..\src\Types\String.cs" Link="Types\String.cs"/>
     <Compile Include="..\..\src\Types\FloatingPoint.cs" Link="Types\FloatingPoint.cs"/>
     <Compile Include="..\..\src\Types\FunctionPointer.cs" Link="Types\FunctionPointer.cs"/>
     <Compile Include="..\..\src\Types\Integer.cs" Link="Types\Integer.cs"/>
