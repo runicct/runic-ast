@@ -33,13 +33,13 @@ namespace Runic.AST
 {
     public abstract partial class Type
     {
-        public abstract class StructOrUnion
+        public abstract class StructOrUnion : Type
         {
             public class Field
-            {
+            { 
                 Type _type;
                 public Type Type { get { return _type; } }
-                StructOrUnion _parent;
+                internal StructOrUnion _parent;
                 bool _indexSet = false;
                 uint _index;
                 public uint Index
@@ -50,6 +50,10 @@ namespace Runic.AST
                         {
                             if (!_indexSet)
                             {
+                                if (_parent == null)
+                                {
+                                    throw new Exception("A field index can't be access until the field is added to a struct or union");
+                                }
                                 for (int n = 0; n < _parent.Fields.Length; n++)
                                 {
                                     if (this == _parent.Fields[n])
@@ -81,9 +85,8 @@ namespace Runic.AST
                         return _offset;
                     }
                 }
-                public Field(StructOrUnion parent, Type type)
+                public Field(Type type)
                 {
-                    _parent = parent;
                     _type = type;
                 }
             }
@@ -93,6 +96,10 @@ namespace Runic.AST
             public StructOrUnion(Field[] fields)
             {
                 _fields = fields;
+                for (int n = 0; n < _fields.Length; n++)
+                {
+                    _fields[n]._parent = this;
+                }
             }
         }
     }

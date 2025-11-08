@@ -209,6 +209,23 @@ namespace Runic.AST
                         public UTF32(char value) : this(-1, -1, -1, -1, null, value) { }
                     }
                 }
+                public class Struct : Constant
+                {
+                    Type.StructOrUnion _type;
+                    public override Type Type { get { return _type; } }
+                    Dictionary<Type.StructOrUnion.Field, Constant> _fields;
+                    public IReadOnlyDictionary<Type.StructOrUnion.Field, Constant> Fields { get { return _fields; } }
+#if NET6_0_OR_GREATER
+                    public Struct(int startLine, int startColumn, int endLine, int endColumn, string? file, Type.StructOrUnion type, Dictionary<Type.StructOrUnion.Field, Constant> fields) : base(startLine, startColumn, endLine, endColumn, file)
+#else
+                        public Struct(int startLine, int startColumn, int endLine, int endColumn, string file, Type.StructOrUnion type, Dictionary<Type.StructOrUnion.Field, Constant> fields) : base(startLine, startColumn, endLine, endColumn, file)
+#endif
+                    {
+                        _type = type;
+                        _fields = fields;
+                    }
+                    public Struct(Type.StructOrUnion type, Dictionary<Type.StructOrUnion.Field, Constant> fields) : this(-1, -1, -1, -1, null, type, fields) { }
+                }
             }
         }
     }

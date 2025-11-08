@@ -59,6 +59,8 @@
     <Compile Include="..\..\src\Nodes\Xor.cs" Link="Nodes\Xor.cs"/>
     <Compile Include="..\..\src\Nodes\Shr.cs" Link="Nodes\Shr.cs"/>
     <Compile Include="..\..\src\Nodes\Shl.cs" Link="Nodes\Shl.cs"/>
+    <Compile Include="..\..\src\Nodes\ArrayInitializer.cs" Link="Nodes\ArrayInitializer.cs"/>
+    <Compile Include="..\..\src\Nodes\StructInitializer.cs" Link="Nodes\StructInitializer.cs"/>
     <Compile Include="..\..\src\Types\Boolean.cs" Link="Types\Boolean.cs"/>
     <Compile Include="..\..\src\Types\Char.cs" Link="Types\Char.cs"/>
     <Compile Include="..\..\src\Types\String.cs" Link="Types\String.cs"/>

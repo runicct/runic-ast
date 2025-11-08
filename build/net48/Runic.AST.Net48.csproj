@@ -192,6 +192,12 @@
     <Compile Include="..\..\src\Nodes\Shl.cs">
       <Link>Nodes\Shl.cs</Link>
     </Compile>
+    <Compile Include="..\..\src\Nodes\ArrayInitializer.cs">
+      <Link>Nodes\ArrayInitializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Nodes\StructInitializer.cs">
+      <Link>Nodes\StructInitializer.cs</Link>
+    </Compile>
     <Compile Include="..\..\src\Types\Boolean.cs">
       <Link>Types\Boolean.cs</Link>
     </Compile>

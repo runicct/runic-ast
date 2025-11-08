@@ -57,9 +57,31 @@ namespace Runic.AST
 #endif
                     if (pointerType == null)
                     {
-                        throw new Exception("Cannot index a non-pointer type");
+                        // Special case for indexing a string
+#if NET6_0_OR_GREATER
+                        Type.String? stringType = address.Type as Type.String;
+#else
+                        Type.String stringType = address.Type as Type.String;
+#endif
+                        if (stringType != null)
+                        {
+                            switch (stringType.Encoding)
+                            {
+                                case Type.CharEncoding.UTF8: _type = Type.Char._utf8Char; break;
+                                case Type.CharEncoding.UTF16: _type = Type.Char._utf16Char; break;
+                                case Type.CharEncoding.UTF32: _type = Type.Char._utf32Char; break;
+                                default: _type = Type.Char._utf8Char; break;
+                            }
+                        }
+                        else
+                        {
+                            throw new Exception("Cannot index a non-pointer type");
+                        }
                     }
-                    _type = pointerType.TargetType;
+                    else
+                    {
+                        _type = pointerType.TargetType;
+                    }
                 }
                 public Indexing(Expression address, Expression index) : this(-1, -1, -1, -1, null, address, index) { }
             }

@@ -34,28 +34,22 @@ namespace Runic.AST
     {
         public abstract partial class Expression : Node
         {
-            public class FunctionReference : Expression
+            public class ArrayInitializer : Expression
             {
-                Function _function;
-                public Function Function { get { return _function; } }
-                Type.FunctionPointer _type;
+                Type.Pointer _type;
                 public override Type Type { get { return _type; } }
+                Expression[] _values;
+                public Expression[] Values { get { return _values; } }
 #if NET6_0_OR_GREATER
-                public FunctionReference(int startLine, int startColumn, int endLine, int endColumn, string? file, Function function) : base(startLine, startColumn, endLine, endColumn, file)
+                public ArrayInitializer(int startLine, int startColumn, int endLine, int endColumn, string? file, Type.Pointer type, Expression[] values) : base(startLine, startColumn, endLine, endColumn, file)
 #else
-                public FunctionReference(int startLine, int startColumn, int endLine, int endColumn, string file, Function function) : base(startLine, startColumn, endLine, endColumn, file)
+                public ArrayInitializer(int startLine, int startColumn, int endLine, int endColumn, string file, Type.Pointer type, Expression[] values) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
                 {
-                    Type[] parameters = new Type[function.Parameters.Length];
-                    for (int n = 0; n < parameters.Length; n++)
-                    {
-                        parameters[n] = function.Parameters[n].Type;
-                    }
-                    _type = new Type.FunctionPointer(function.ReturnType, parameters);
-                    _function = function;
+                    _type = type;
+                    _values = values;
                 }
-
-                public FunctionReference(Function function) : this(-1, -1, -1, -1, null, function) { }
+                public ArrayInitializer(Type.Pointer type, Expression[] values) : this(-1, -1, -1, -1, null, type, values) { }
             }
         }
     }
