@@ -34,22 +34,31 @@ namespace Runic.AST
     {
         public abstract partial class Expression : Node
         {
-            public class Cast : Expression
+            public class DereferenceAssignment : Expression
             {
-                Type _targetType;
-                public override Type Type { get { return _targetType; } }
                 Expression _value;
                 public Expression Value { get { return _value; } }
+                Expression _target;
+                public Expression Target { get { return _target; } }
+                Type _type;
+                public override Type Type { get { return _type; } }
 #if NET6_0_OR_GREATER
-                public Cast(int startLine, int startColumn, int endLine, int endColumn, string? file, Expression value, Type targetType) : base(startLine, startColumn, endLine, endColumn, file)
+                public DereferenceAssignment(int startLine, int startColumn, int endLine, int endColumn, string? file, Expression target, Expression value) : base(startLine, startColumn, endLine, endColumn, file)
 #else
-                public Cast(int startLine, int startColumn, int endLine, int endColumn, string file, Expression value, Type targetType) : base(startLine, startColumn, endLine, endColumn, file)
+                public DereferenceAssignment(int startLine, int startColumn, int endLine, int endColumn, string file, Expression target, Expression value) : base(startLine, startColumn, endLine, endColumn, file)
 #endif
                 {
+#if NET6_0_OR_GREATER
+                    Type.Pointer? pointerType = target.Type as Type.Pointer;
+#else
+                    Type.Pointer pointerType = target.Type as Type.Pointer;
+#endif
+                    if (pointerType == null) { throw new Exception("Cannot dereference assign to a non-pointer type"); }
+                    _type = pointerType.TargetType;
+                    _target = target;
                     _value = value;
-                    _targetType = targetType;
                 }
-                public Cast(Expression value, Type targetType) : this(-1, -1, -1, -1, null, value, targetType) { }
+                public DereferenceAssignment(Expression target, Expression value) : this(-1, -1, -1, -1, null, target, value) { }
             }
         }
     }

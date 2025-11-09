@@ -180,6 +180,9 @@
     <Compile Include="..\..\src\Nodes\VariableUse.cs">
       <Link>Nodes\VariableUse.cs</Link>
     </Compile>
+    <Compile Include="..\..\src\Nodes\DereferenceAssignment.cs">
+      <Link>Nodes\DereferenceAssignment.cs</Link>
+    </Compile>
     <Compile Include="..\..\src\Nodes\While.cs">
       <Link>Nodes\While.cs</Link>
     </Compile>

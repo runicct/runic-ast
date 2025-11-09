@@ -55,6 +55,7 @@
     <Compile Include="..\..\src\Nodes\VariableAssignment.cs" Link="Nodes\VariableAssignment.cs"/>
     <Compile Include="..\..\src\Nodes\VariableReference.cs" Link="Nodes\VariableReference.cs"/>
     <Compile Include="..\..\src\Nodes\VariableUse.cs" Link="Nodes\VariableUse.cs"/>
+    <Compile Include="..\..\src\Nodes\DereferenceAssignment.cs" Link="Nodes\DereferenceAssignment.cs"/>
     <Compile Include="..\..\src\Nodes\While.cs" Link="Nodes\While.cs"/>
     <Compile Include="..\..\src\Nodes\Xor.cs" Link="Nodes\Xor.cs"/>
     <Compile Include="..\..\src\Nodes\Shl.cs" Link="Nodes\Shl.cs"/>
