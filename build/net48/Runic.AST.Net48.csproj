@@ -237,6 +237,7 @@
     <Compile Include="..\..\src\Types\Void.cs">
       <Link>Types\Void.cs</Link>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
