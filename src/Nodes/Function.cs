@@ -57,14 +57,18 @@ namespace Runic.AST
             public abstract Type ReturnType { get; }
 #if NET6_0_OR_GREATER
             public abstract Node[]? Body { get; }
+            string? _name;
+            public string? Name { get { return _name; } }
 #else
             public abstract Node[] Body { get; }
+            string _name;
+            public string Name { get { return _name; } }
 #endif
             public abstract Variable.FunctionParameter[] Parameters { get; }
 #if NET6_0_OR_GREATER
-            public Function(int startLine, int startColumn, int endLine, int endColumn, string? file) : base(startLine, startColumn, endLine, endColumn, file) { }
+            public Function(int startLine, int startColumn, int endLine, int endColumn, string? file, string? name) : base(startLine, startColumn, endLine, endColumn, file) { _name = name; }
 #else
-            public Function(int startLine, int startColumn, int endLine, int endColumn, string file) : base(startLine, startColumn, endLine, endColumn, file) { }
+            public Function(int startLine, int startColumn, int endLine, int endColumn, string file, string name) : base(startLine, startColumn, endLine, endColumn, file) { _name = name; }
 #endif
             public Function() : base() { }
         }
